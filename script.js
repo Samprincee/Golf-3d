@@ -126,3 +126,33 @@ gsap.from("#page4 h1", {
       scrub: 3,
     },
   });
+
+
+//   Mobile js
+
+if (window.innerWidth > 768) {
+  var crsr = document.querySelector("#cursor");
+  var dhun = document.querySelector("#cursor-blur");
+
+  document.addEventListener("mousemove", function (detail) {
+      crsr.style.left = detail.x + "px";
+      crsr.style.top = detail.y + "px";
+      dhun.style.left = detail.x - 200 + "px";
+      dhun.style.top = detail.y - 200 + "px";
+  });
+
+  var h4all = document.querySelectorAll("#nav h4");
+
+  h4all.forEach(function (elem) {
+      elem.addEventListener("mouseenter", ()=>{
+          crsr.style.scale = 3;
+          crsr.style.border = "1px solid #fff";
+          crsr.style.backgroundColor = "transparent";
+      });
+      elem.addEventListener("mouseleave", ()=>{
+          crsr.style.scale = 1;
+          crsr.style.border = "0px solid #fff";
+          crsr.style.backgroundColor = "#95C11E";
+      });
+  });
+}
